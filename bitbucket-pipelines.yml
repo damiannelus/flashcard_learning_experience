@@ -6,10 +6,22 @@
 image: node:10.15.3
 
 pipelines:
-  default:
-    - step:
-        caches:
-          - node
-        script: # Modify the commands below to build your repository.
-          - npm install
-          - npm test
+  branches:
+    master:
+      - step:
+          name: Generate Static Files
+          caches:
+            - node
+          script:
+            - npm install
+            - npm test
+            - npm run build
+          artifacts:
+            - dist/*
+            - dist/**/*
+            - dist/**/**
+      - step:
+          name: Deploy to S3
+          image: atlassian/pipelines-awscli
+          script: 
+            - aws s3 sync --acl public-read --delete ./dist s3://$S3_BUCKET_NAME
