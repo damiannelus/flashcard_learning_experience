@@ -5,9 +5,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './custom.scss'
 
-import HelloWorld from './components/HelloWorld.vue'
-import ListOfWords from './components/ListOfWords.vue'
-import NotFound from './components/NotFound.vue'
+import HelloWorld from './components/TheHelloWorld.vue'
+import ListOfWords from './components/ListOfWords/TheListOfWords.vue'
+import NotFound from './components/TheNotFound.vue'
 
 Vue.config.productionTip = false
 
