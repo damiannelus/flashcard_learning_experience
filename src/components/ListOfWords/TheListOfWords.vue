@@ -75,7 +75,6 @@ export default {
       console.log(`flashcardToMove: ${flashcardToMove.id}`);
       
       this.doneFlashCards.push(flashcardToMove);
-      this.flashCards.splice(idxRem-1,1);
     }
   }
 };
