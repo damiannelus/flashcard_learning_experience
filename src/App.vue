@@ -14,8 +14,7 @@
 
 <script>
 export default {
-  name: "app",
-  flashCards: [],
+  name: "app"
 };
 </script>
 

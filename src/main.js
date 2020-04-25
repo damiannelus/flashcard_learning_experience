@@ -8,6 +8,8 @@ import './custom.scss'
 import HelloWorld from './components/TheHelloWorld.vue'
 import ListOfWords from './components/ListOfWords/TheListOfWords.vue'
 import NotFound from './components/TheNotFound.vue'
+import store from './store'
+
 
 Vue.config.productionTip = false
 
@@ -28,5 +30,6 @@ const router = new VueRouter({
 
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
