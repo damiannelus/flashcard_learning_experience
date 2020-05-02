@@ -1,12 +1,13 @@
 <template>
   <div>
-    <button>DON'T TOUCH THIS</button>
+    <button v-on:click="loadPredefinedSet">DON'T TOUCH THIS</button>
   </div>  
 </template>
 
 <script>
 import predefiendSet from "../../data_objects/predefinedSet";
-import listPredefinedSets from "../../utils/FirebaseAccess"
+import {listPredefinedSets,obtainFileFromFirebase} from "../../utils/FirebaseAccess";
+// import obtainFileFromFirebase from "../../utils/FirebaseAccess";
 
 export default {
   name: "LoadPredefinedSets",
@@ -14,7 +15,13 @@ export default {
     return {
       predefinedSets: []
     }
-  }, 
+  },
+  methods: {
+    loadPredefinedSet: function () {
+      let gsFileRef = obtainFileFromFirebase('wordsToUpload.csv')
+      console.log(gsFileRef);
+    }
+  },
   created() {
     listPredefinedSets();
   }

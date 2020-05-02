@@ -21,6 +21,7 @@
 <script>
 import Vuex from 'vuex'
 import FlashCard from "../../data_objects/flashCard";
+import parseCSV from "../../utils/CSVManipulaitons";
 
 export default {
   name: "LoadFileComponent",
@@ -42,7 +43,7 @@ export default {
         //TODO Handle errors load
         reader.onload = function(event) {
           var csv = event.target.result;
-          vm.parseCSV(csv);
+          parseCSV(csv);
           vm.$store.dispatch('loadFlashcards', vm.parse_csv);
         };
         reader.onerror = function(evt) {
@@ -54,42 +55,6 @@ export default {
         alert("FileReader are not supported in this browser.");
       }
     },
-
-    // parse CSV
-    parseCSV(csvFile) {
-      var vm = this;
-      let idx = 0;
-      csvFile.trim();
-      var lines = csvFile.split(/\r\n|\n/);
-      lines.forEach(line => {
-        line = line.trim();
-      })
-      var headers = lines[0].split(",");
-      lines[0].split(",").forEach(function(key) {
-        vm.sortOrders[key] = 1;
-      });
-
-      lines.map(function(line, indexLine) {
-        if (indexLine < 1) return; // Jump header line
-
-        var obj = {};        
-        if (line.indexOf(',') > -1) {
-          var currentline = line.split(",");
-          headers.map(function(header, indexHeader) {
-            obj[header] = currentline[indexHeader].trim();
-          });
-          idx += 1;
-          vm.parse_csv.push(
-            new FlashCard(
-              idx,
-              obj.english.replace("\r", ""),
-              obj.polish.replace("\r", "")
-            )
-        );
-        }            
-        return vm.parse_csv; // JavaScript object
-      });
-    }
   }
 };
 </script>

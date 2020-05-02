@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-export default function listPredefinedSets() {
+export const listPredefinedSets = () => {
   const storage = firebase.app().storage();
   const storageRef = storage.ref();
   
@@ -27,4 +27,11 @@ export default function listPredefinedSets() {
       console.log(item.storage);
    });
   }).catch(error => {console.log(error)});
+}
+
+export const obtainFileFromFirebase = (fileName) => {
+  const storage = firebase.app().storage();
+  const storageRef = storage.ref(fileName);
+  // const gsReference = storage.refFromURL('gs://bucket/images/stars.jpg')
+  return storageRef;
 }
