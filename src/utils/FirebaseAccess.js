@@ -28,7 +28,3 @@ export default function listPredefinedSets() {
    });
   }).catch(error => {console.log(error)});
 }
-
-export default function obtainFile(fileNam) {
-  
-};

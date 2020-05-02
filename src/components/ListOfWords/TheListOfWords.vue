@@ -6,11 +6,19 @@
           <b-col class="bg-info">
             <div>
               <p>
+                <LoadPredefinedSets></LoadPredefinedSets>
+              </p>
+            </div>
+          </b-col>
+          <b-col class="bg-info">
+            <div>
+              <p>
                 <LoadFileComponent></LoadFileComponent>
               </p>
             </div>
           </b-col>
-          <div class="w-100"></div>
+        </b-row>
+        <b-row>
           <b-col class="bg-dark">
             <words-for-guessing></words-for-guessing>
           </b-col>
@@ -31,10 +39,11 @@ import LoadFileComponent from "../LoadFile/LoadFile";
 import WordsForGuessing from "../WordsForGuessing/WordsForGuessing";
 import ListOfDone from "../ListOfDone/ListOfDone";
 import _ from "lodash";
+import LoadPredefinedSets from "../PredefinedSets/LoadPredefinedSets"
 Vue.prototype._ = _;
 
 export default {
-  components: { LoadFileComponent, WordsForGuessing, ListOfDone },
+  components: { LoadFileComponent, WordsForGuessing, ListOfDone, LoadPredefinedSets},
 
   methods: {
   }
