@@ -5,8 +5,11 @@
 </template>
 
 <script>
+import Vuex from 'vuex'
 import predefiendSet from "../../data_objects/predefinedSet";
 import {listPredefinedSets,obtainFileFromFirebase} from "../../utils/FirebaseAccess";
+
+import parseCSV from "../../utils/CSVManipulaitons";
 // import obtainFileFromFirebase from "../../utils/FirebaseAccess";
 
 export default {
@@ -19,6 +22,13 @@ export default {
   methods: {
     loadPredefinedSet: function () {
       let gsFileRef = obtainFileFromFirebase('wordsToUpload.csv')
+      gsFileRef.then((result) => {
+        // var reader = new FileReader();
+        // reader.readAsText(result);
+        this.$store.dispatch('loadFlashcards', parseCSV(result));
+      }).catch((err) => {
+        console.log("error mtf");
+      });
       console.log(gsFileRef);
     }
   },

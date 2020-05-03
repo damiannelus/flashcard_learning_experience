@@ -43,8 +43,8 @@ export default {
         //TODO Handle errors load
         reader.onload = function(event) {
           var csv = event.target.result;
-          parseCSV(csv);
-          vm.$store.dispatch('loadFlashcards', vm.parse_csv);
+          // parseCSV(csv);
+          vm.$store.dispatch('loadFlashcards', parseCSV(csv));
         };
         reader.onerror = function(evt) {
           if (evt.target.error.name == "NotReadableError") {

@@ -35,7 +35,6 @@ export default function parseCSV(csvFile) {
         )
       );
     }
-    console.log("parseCSV: " + parse_csv)
   });
   return parse_csv; // JavaScript object
 }

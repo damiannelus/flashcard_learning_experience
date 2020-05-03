@@ -17,21 +17,22 @@ firebase.initializeApp(firebaseConfig);
 export const listPredefinedSets = () => {
   const storage = firebase.app().storage();
   const storageRef = storage.ref();
-  
+
   storageRef.listAll().then(res => {
-    res.items.forEach( item => {
-      console.log( item.bucket ); 
+    res.items.forEach(item => {
+      console.log(item.bucket);
       console.log(item.fullPath);
       console.log(item.parent);
       console.log(item.root);
       console.log(item.storage);
-   });
-  }).catch(error => {console.log(error)});
+    });
+  }).catch(error => { console.log(error) });
 }
 
 export const obtainFileFromFirebase = (fileName) => {
   const storage = firebase.app().storage();
-  const storageRef = storage.ref(fileName);
+  const fileToParse = storage.ref().child(fileName);
+  // fileToParse.getDownloadURL().then((url) => { this.setState({ img: url }));
   // const gsReference = storage.refFromURL('gs://bucket/images/stars.jpg')
-  return storageRef;
+  return fileToParse.getDownloadURL();
 }
