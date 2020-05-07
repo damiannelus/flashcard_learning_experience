@@ -9,6 +9,7 @@ import HelloWorld from './components/TheHelloWorld.vue'
 import ListOfWords from './components/ListOfWords/TheListOfWords.vue'
 import NotFound from './components/TheNotFound.vue'
 import store from './store'
+const fb = require('./utils/FirebaseConfig');
 
 
 Vue.config.productionTip = false

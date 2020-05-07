@@ -25,6 +25,7 @@ export default {
       gsFileRef.then((result) => {
         // var reader = new FileReader();
         // reader.readAsText(result);
+        
         this.$store.dispatch('loadFlashcards', parseCSV(result));
       }).catch((err) => {
         console.log("error mtf");

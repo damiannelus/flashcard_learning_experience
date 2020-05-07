@@ -5,7 +5,7 @@ export default function parseCSV(csvFile) {
   let parse_csv  = [];
   let sortOrders = {};
   let sortKey = ""
-
+  console.log(csvFile);
   let idx = 0;
   csvFile.trim();
   var lines = csvFile.split(/\r\n|\n/);
