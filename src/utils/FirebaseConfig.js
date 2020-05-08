@@ -2,14 +2,14 @@ import firebase from "firebase";
 import 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDhDrefIMZS2OQAPRduVZ7JfjSEujrxfCI",
-  authDomain: "click-275312.firebaseapp.com",
-  databaseURL: "https://click-275312.firebaseio.com",
-  projectId: "click-275312",
-  storageBucket: "click-275312.appspot.com",
-  messagingSenderId: "134974555368",
-  appId: "1:134974555368:web:6b086757921d86c8f1f55d",
-  measurementId: "G-3XGPRP2RHH"
+  apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
+  authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.VUE_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.UE_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.VUE_APP_FIREBASE_APP_ID,
+  measurementId: process.env.VUE_APP_FIREBASE_MEASUREMENT_ID
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -19,11 +19,6 @@ const db = firebase.firestore()
 const auth = firebase.auth()
 const currentUser = auth.currentUser
 
-// date issue fix according to firebase
-const settings = {
-  timestampsInSnapshots: true
-}
-db.settings(settings)
 
 // firebase collections
 const flashCardsCollection = db.collection('flashCards');

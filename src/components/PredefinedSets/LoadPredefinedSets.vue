@@ -1,45 +1,62 @@
 <template>
   <div>
-    <button v-on:click="loadPredefinedSet">DON'T TOUCH THIS</button>
-  </div>  
+    <button v-on:click="loadPredefinedSet">Load sample flashcards</button>
+  </div>
 </template>
 
 <script>
-import Vuex from 'vuex'
+import Vuex from "vuex";
 import predefiendSet from "../../data_objects/predefinedSet";
-import {listPredefinedSets,obtainFileFromFirebase} from "../../utils/FirebaseAccess";
+const fb = require("../../utils/FirebaseConfig");
+
+import FlashCard from "../../data_objects/flashCard";
 
 import parseCSV from "../../utils/CSVManipulaitons";
-// import obtainFileFromFirebase from "../../utils/FirebaseAccess";
+import { readFlashCards } from "../../utils/FirebaseAccess";
 
 export default {
   name: "LoadPredefinedSets",
   data() {
     return {
       predefinedSets: []
-    }
+    };
   },
   methods: {
-    loadPredefinedSet: function () {
-      let gsFileRef = obtainFileFromFirebase('wordsToUpload.csv')
-      gsFileRef.then((result) => {
-        // var reader = new FileReader();
-        // reader.readAsText(result);
-        
-        this.$store.dispatch('loadFlashcards', parseCSV(result));
-      }).catch((err) => {
-        console.log("error mtf");
+    loadPredefinedSet: function() {
+      let loadedFlashCards = [];
+      fb.flashCardsCollection
+        .get()
+        .then(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            loadedFlashCards.push(
+              new FlashCard(doc.id, doc.data().english, doc.data().polish)
+            );
+            console.log(doc.id, " => ", doc.data().english);
+          });
+          console.log(
+            "FB access : loadedFlashCards.length: " + loadedFlashCards.length
+          );
+          this.$store.dispatch("loadFlashcards", loadedFlashCards);
+        })
+        .catch(err => {
+          console.log("Error getting documents: ", err);
+        });
+    },
+    uploadLoaded: function() {
+      this.$store.state.flashCards.forEach((item, idx, array) => {
+        fb.flashCardsCollection
+          .add({english: item.word, polish: item.translation})
+          .then(() => {
+            console.log("Document added successfully");
+          })
+          .catch(err => {
+            console.error("Error writing document: ", err);
+          });
       });
-      console.log(gsFileRef);
     }
-  },
-  created() {
-    listPredefinedSets();
   }
-}
-
+};
 </script>
 
 <style>
-
 </style>
