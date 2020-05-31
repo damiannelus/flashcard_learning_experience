@@ -1,11 +1,14 @@
 <template>
   <div id="app">
     <div>
-      <b-navbar type="dark" variant="dark">
-        <b-navbar-nav>
-          <b-nav-item to="/low">List of words</b-nav-item>
-          <b-nav-item to="/home">Hello world</b-nav-item>
-        </b-navbar-nav>
+      <b-navbar type="dark" variant="dark" toggleable="sm">
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+        <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav>
+            <b-nav-item to="/low">List of words</b-nav-item>
+            <b-nav-item to="/home">Hello world</b-nav-item>
+          </b-navbar-nav>
+        </b-collapse>
       </b-navbar>
     </div>
     <router-view></router-view>

@@ -14,6 +14,8 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+import FlashCard from "../data_objects/flashCard";
+
 // firebase utils
 const db = firebase.firestore()
 const auth = firebase.auth()
@@ -29,11 +31,6 @@ const flashCardsCollection = db.collection('flashCards');
 
 //   storageRef.listAll().then(res => {
 //     res.items.forEach(item => {
-//       console.log(item.bucket);
-//       console.log(item.fullPath);
-//       console.log(item.parent);
-//       console.log(item.root);
-//       console.log(item.storage);
 //     });
 //   }).catch(error => { console.log(error) });
 // }

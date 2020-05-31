@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 
 import FlashCard from "./data_objects/flashCard";
 import _ from "lodash";
-// Vue.prototype._ = _;
 
 Vue.use(Vuex)
 
@@ -16,6 +15,11 @@ export default new Vuex.Store({
       ],
       doneFlashCards: [],
   },
+  getters: {
+    getUnchecked: state => {
+      return state.flashCards.filter(card => !card.isChecked);
+    }
+  },
   //mutations are meant to be very thin wrappers around native operations on the state, with almost no business logic
   //It's also worth keeping in mind that many Vuex's plugins don't watch the state directly to track changes, 
   //they rather rely on mutations for that. "Out of bound" changes to the state are thus invisible to them.
@@ -25,6 +29,9 @@ export default new Vuex.Store({
     },
     ADD_DONE_FLASHCARD(state, flashCard) {
       state.doneFlashCards.push(flashCard);
+    },
+    ADD_FLASHCARD(state, flashCard) {
+      state.flashCards.push(flashCard);
     }
   },
   //Actions to house more elaborate business logic.
@@ -51,6 +58,10 @@ export default new Vuex.Store({
 
     loadFlashcards ({commit}, newFlashCards) {
       commit('FILL_IN_FLASHCARDS', newFlashCards);
+    },
+
+    addFlashCard ({commit}, newFlashCard) {
+      commit('ADD_FLASHCARD', newFlashCard);
     }
   }
 })
