@@ -14,6 +14,7 @@ import store from './store'
 Vue.config.productionTip = false
 
 import VueRouter from 'vue-router'
+import i18n from './i18n'
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
@@ -31,5 +32,6 @@ const router = new VueRouter({
 new Vue({
   router,
   store,
-  render: h => h(App),
+  i18n,
+  render: h => h(App)
 }).$mount('#app')
