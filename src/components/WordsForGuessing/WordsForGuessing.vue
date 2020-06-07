@@ -1,17 +1,9 @@
 <template>
   <div>
-    <b-list-group v-if="drawnFlashCards && drawnFlashCards.length" flush="true" class="align-items-left">
-      <b-list-group-item v-for="flashCard in drawnFlashCards" v-bind:key="flashCard.id" class="align-items-left">
+    <b-list-group v-if="drawnFlashCards && drawnFlashCards.length" flush=true class="align-items-center">
+      <b-list-group-item v-on:click="wordChecked(flashCard.id)" v-for="flashCard in drawnFlashCards" v-bind:key="flashCard.id" class="align-items-right">
           <div v-if="flashCard.isChecked != true" class="">
-          <input
-            type="checkbox"
-            class="hidden w-4 h-4 text-green-600 pointer-events-none"
-            v-model="flashCard.isChecked"
-            v-bind:id="flashCard.id"
-            @change="wordChecked(flashCard.id)"
-            unchecked
-          />
-          <span v-bind:class="{'checked':flashCard.isChecked}">{{ flashCard.word }}</span>
+          <span v-bind:class="{'checked':flashCard.isChecked}"> {{ flashCard.word }}</span>
         </div>
       </b-list-group-item>
     </b-list-group>

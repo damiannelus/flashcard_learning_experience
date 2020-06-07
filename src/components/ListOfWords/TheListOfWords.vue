@@ -2,24 +2,26 @@
   <div>
     <div>
       <b-container class="bv-example-row">
-        <b-row>
-          <b-col>
-            <div>
-              <p>
-                <LoadPredefinedSets></LoadPredefinedSets>
-              </p>
-            </div>
-          </b-col>
-          <b-col>
-            <div>
-              <p>
-                <LoadFileComponent></LoadFileComponent>
-              </p>
-            </div>
-          </b-col>
-        </b-row>
+        <div class="d-none d-lg-block">
+          <b-row>
+            <b-col>
+              <div>
+                <p>
+                  <LoadPredefinedSets></LoadPredefinedSets>
+                </p>
+              </div>
+            </b-col>
+            <b-col>
+              <div>
+                <p>
+                  <LoadFileComponent></LoadFileComponent>
+                </p>
+              </div>
+            </b-col>
+          </b-row>
+        </div>
         <b-row cols="1">
-          <b-col class="bg-light" col xl="8" lg="8" >
+          <b-col class="bg-light" col xl="8" lg="8">
             <words-for-guessing></words-for-guessing>
           </b-col>
           <b-col class="bg-light" col xl="4" lg="4">
@@ -30,12 +32,15 @@
         </b-row>
         <b-row>
           <b-col class="bg-light">
-            <newFlashCardForm></newFlashCardForm>
+            <div class="d-none d-lg-block">
+              <newFlashCardForm></newFlashCardForm>
+            </div>
           </b-col>
         </b-row>
       </b-container>
     </div>
     <label class="custom-label flex"></label>
+    <div class="d-block d-lg-none">Words checked so far: {{doneCnt}}</div>
   </div>
 </template>
 
@@ -46,20 +51,31 @@ import LoadFileComponent from "../LoadFile/LoadFile";
 import WordsForGuessing from "../WordsForGuessing/WordsForGuessing";
 import ListOfDone from "../ListOfDone/ListOfDone";
 import _ from "lodash";
-import LoadPredefinedSets from "../PredefinedSets/LoadPredefinedSets"
+import LoadPredefinedSets from "../PredefinedSets/LoadPredefinedSets";
 import newFlashCardForm from "../NewWords/AddWord";
 Vue.prototype._ = _;
 
 export default {
-  components: { LoadFileComponent, WordsForGuessing, ListOfDone, LoadPredefinedSets, newFlashCardForm},
+  components: {
+    LoadFileComponent,
+    WordsForGuessing,
+    ListOfDone,
+    LoadPredefinedSets,
+    newFlashCardForm
+  },
 
-  methods: {
+  methods: {},
+
+  computed: {
+    doneCnt () {
+      return this.$store.state.doneFlashCards.length;
+    }
   }
 };
 </script>
 
 <style scoped>
-ul {
+/* ul {
   list-style-type: none;
 }
 
@@ -69,5 +85,5 @@ ul {
 
 .checked {
   text-decoration: line-through;
-}
+} */
 </style>
