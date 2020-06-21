@@ -1,0 +1,18 @@
+{
+  "menu": {
+    "list-of-words": "🧾Lista de palabras",
+    "hello-world": "🌍Hola mundo"
+  },
+
+  "list-of-words": {
+    "load-sample-flashcards": "Cargar flashcards de muestra",
+    "shuffle": "Barajar cartas",
+    "done-words-title": "Las palabras marcadas aparecerán a continuación | {n} ya marcadas | {n} ya marcadas",
+    "add-word-banner": "¿Encontró una buena palabra? ¡Agréguela!",
+    "add-word-front": "Frente",
+    "add-word-back": "Atrás",
+    "add-word-submit": "Enviar 🤘",
+    "add-word-error": "Corrija los siguientes errores: | Corrija el siguiente error: | Corrija los siguientes errores:",
+    "small-screen-done-counter": "Palabras verificadas hasta ahora: {n}"
+  }
+}

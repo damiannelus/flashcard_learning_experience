@@ -14,8 +14,6 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-import FlashCard from "../data_objects/flashCard";
-
 // firebase utils
 const db = firebase.firestore()
 const auth = firebase.auth()
@@ -25,30 +23,11 @@ const currentUser = auth.currentUser
 // firebase collections
 const flashCardsCollection = db.collection('flashCards');
 
-// const listPredefinedSets = () => {
-//   const storage = firebase.app().storage();
-//   const storageRef = storage.ref();
-
-//   storageRef.listAll().then(res => {
-//     res.items.forEach(item => {
-//     });
-//   }).catch(error => { console.log(error) });
-// }
-
-// const obtainFileFromFirebase = (fileName) => {
-//   const storage = firebase.app().storage();
-//   const fileToParse = storage.ref().child(fileName);
-//   // fileToParse.getDownloadURL().then((url) => { this.setState({ img: url }));
-//   // const gsReference = storage.refFromURL('gs://bucket/images/stars.jpg')
-//   return fileToParse.getDownloadURL();
-// }
-
 export {
   db,
   auth,
   currentUser,
   flashCardsCollection,
-  // listPredefinedSets,
-  // obtainFileFromFirebase
+  firebaseConfig
 }
 

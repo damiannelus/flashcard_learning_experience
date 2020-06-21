@@ -17,7 +17,11 @@ export default new Vuex.Store({
   },
   getters: {
     getUnchecked: state => {
-      return state.flashCards.filter(card => !card.isChecked);
+      try {
+        return state.flashCards.filter(card => !card.isChecked);
+      } catch (error) {
+        return {};
+      }
     }
   },
   //mutations are meant to be very thin wrappers around native operations on the state, with almost no business logic
@@ -25,7 +29,7 @@ export default new Vuex.Store({
   //they rather rely on mutations for that. "Out of bound" changes to the state are thus invisible to them.
   mutations: {
     FILL_IN_FLASHCARDS(state, newFlashCards) {
-      Vue.set(state, 'flashCards', [...newFlashCards])
+      Vue.set(state, 'flashCards', newFlashCards)
     },
     ADD_DONE_FLASHCARD(state, flashCard) {
       state.doneFlashCards.push(flashCard);

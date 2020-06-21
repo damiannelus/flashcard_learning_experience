@@ -1,7 +1,6 @@
 <template>
   <div class="ListOfDone">
-    <h3 v-if="doneToDisplay.length > 0">{{doneToDisplay.length}} already checked </h3>
-    <h3 v-else>Checked words will appear below</h3>
+    <h3>{{ $tc('list-of-words.done-words-title', doneToDisplay.length) }}</h3>
     <ul v-if="doneToDisplay && doneToDisplay.length">
       <li v-for="flashCard in latestDone" v-bind:key="flashCard.id">
         {{flashCard.word}} - {{flashCard._translation}}

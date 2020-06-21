@@ -7,7 +7,7 @@
         </div>
       </b-list-group-item>
     </b-list-group>
-    <button type="button" class="btn btn-outline-primary" v-on:click="shuffleCards">SHUFFLE CARDS</button>
+    <button type="button" class="btn btn-outline-primary" v-on:click="shuffleCards">{{ $t('list-of-words.shuffle') }}</button>
     <k-progress :percent="percent" :color="['#008000', '#FFA500', '#FF0000']" :color-flow="false" active></k-progress>
   </div>
 </template>
@@ -35,7 +35,7 @@ export default {
            self.shuffleCards();
            self.percent = 0;
          }
-    }, 600);
+    }, 60000);
 	},
 
   methods: {

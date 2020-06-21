@@ -1,17 +1,17 @@
 <template>
   <div>
     <p class="text-success">
-      Came across a nice word? Let's add it!
+      {{ $t('list-of-words.add-word-banner') }}
     </p>
     <p v-if="errors.length">
-      <b>Please correct the following error(s):</b>
+      <b>{{ $tc('list-of-words.add-word-error', errors.length) }}</b>
       <ul>
         <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
       </ul>
     </p>
 
     <p>
-      <label for="front">Front</label>
+      <label for="front">{{ $t('list-of-words.add-word-front') }}</label>
       <input
         id="front"
         v-model="front"
@@ -21,7 +21,7 @@
     </p>
 
     <p>
-      <label for="back">Back</label>
+      <label for="back">{{ $t('list-of-words.add-word-back') }}</label>
       <input
         id="back"
         v-model="back"
@@ -33,7 +33,7 @@
     <p>
       <input
         type="submit"
-        value="Submit"
+        v-bind:value="$t('list-of-words.add-word-submit')"
         v-on:click="submit"
       >
     </p>

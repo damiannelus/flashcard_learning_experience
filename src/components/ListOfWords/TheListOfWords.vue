@@ -40,7 +40,7 @@
       </b-container>
     </div>
     <label class="custom-label flex"></label>
-    <div class="d-block d-lg-none">Words checked so far: {{doneCnt}}</div>
+    <div class="d-block d-lg-none">{{ $tc('list-of-words.small-screen-done-counter', doneCnt) }}</div>
   </div>
 </template>
 

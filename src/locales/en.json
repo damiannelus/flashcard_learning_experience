@@ -1,3 +1,18 @@
 {
-  "message": "hello i18n !!"
+  "menu": {
+    "list-of-words": "🧾List of words",
+    "hello-world": "🌍Hello world"
+  },
+
+  "list-of-words": {
+    "load-sample-flashcards": "Load sample flashcards",
+    "shuffle": "Shuffle cards",
+    "done-words-title": "Checked words will appear below | {n} already checked | {n} already checked ",
+    "add-word-banner": "Came across a nice word? Let's add it!",
+    "add-word-front": "Front ",
+    "add-word-back": "Back ",
+    "add-word-submit": "Submit 🤘",
+    "add-word-error": "Please correct the following error(s): | Please correct the following error: | Please correct the following errors:",
+    "small-screen-done-counter": "Words checked so far: {n}"
+  }
 }

@@ -5,10 +5,11 @@
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
-            <b-nav-item to="/low">List of words</b-nav-item>
-            <b-nav-item to="/home">Hello world</b-nav-item>
+            <b-nav-item to="/low">{{ $t('menu.list-of-words') }}</b-nav-item>
+            <b-nav-item to="/home">{{ $t('menu.hello-world') }}</b-nav-item>
           </b-navbar-nav>
         </b-collapse>
+        <LocaleChanger></LocaleChanger>
       </b-navbar>
     </div>
     <router-view></router-view>
@@ -16,8 +17,13 @@
 </template>
 
 <script>
+import LocaleChanger from "./components/LocaleChanger/LocaleChanger";
+
 export default {
-  name: "app"
+  name: "app",
+  components: {
+    LocaleChanger,
+  }
 };
 </script>
 

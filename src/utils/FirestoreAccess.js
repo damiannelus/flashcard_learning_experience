@@ -1,30 +1,27 @@
 const fc = require('./FirebaseConfig');
 import FlashCard from "../data_objects/flashCard";
 
-import Vuex from 'vuex'
-
 //functions
-const loadPredefinedSet = () => {
+const loadPredefinedSet = async () => {
   let loadedFlashCards = [];
-  fc.flashCardsCollection
+  console.log(process.env.VUE_APP_FIREBASE_PROJECT_ID);
+  console.log("fc.flashCardsCollection: " + fc.flashCardsCollection);
+  await fc.flashCardsCollection
     .get()
     .then(querySnapshot => {
       querySnapshot.forEach(doc => {
         loadedFlashCards.push(
           new FlashCard(doc.id, doc.data().english, doc.data().polish)
         );
-        console.log(doc.id, " => ", doc.data().english);
       });
       console.log(
         "FB access : loadedFlashCards.length: " + loadedFlashCards.length
       );
     })
-    .then(() => {
-      return loadedFlashCards;
-    })
     .catch(err => {
       console.log("Error getting documents: ", err);
     });
+  return loadedFlashCards;
 };
 
 const checkIfCardExists = async (wordToCheck) => {
@@ -82,25 +79,3 @@ export {
   loadPredefinedSet,
   addSingleWord
 }
-
-// const readFlashCards = () => {
-//   let loadedFlashCards = [];
-//   fb.flashCardsCollection.get().then((querySnapshot) => {
-//     querySnapshot.forEach((doc) => {
-//       loadedFlashCards.push(new FlashCard(
-//         doc.id,
-//         doc.data().english,
-//         doc.data().polish
-//       ));
-//       console.log(doc.id, " => ", doc.data().english);
-//     });
-//     console.log("FB access : loadedFlashCards.length: " + loadedFlashCards.length)
-//     $store.dispatch('loadFlashcards', loadedFlashCards);
-//   }).catch((err) => {
-//     console.log("Error getting documents: ", err);
-//   });
-// }
-
-// export {
-//   readFlashCards
-// }

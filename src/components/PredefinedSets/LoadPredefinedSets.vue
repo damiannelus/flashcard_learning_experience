@@ -22,8 +22,13 @@ export default {
   },
   methods: {
     loadPredefinedSet: function() {
-      const loadedFlashCards = fb.loadPredefinedSet();
-      this.$store.dispatch("loadFlashcards", loadedFlashCards);
+      fb.loadPredefinedSet()
+      .then((result) => {
+        this.$store.dispatch("loadFlashcards", result);
+      }).catch((err) => {
+        console.log(err);
+      });
+      
     },
     uploadLoaded: function() {
       this.$store.state.flashCards.forEach((item, idx, array) => {
