@@ -40,7 +40,20 @@
       </b-container>
     </div>
     <label class="custom-label flex"></label>
-    <div class="d-block d-lg-none">{{ $tc('list-of-words.small-screen-done-counter', doneCnt) }}</div>
+    <div class="d-block d-lg-none">
+      <div>{{ $tc('list-of-words.small-screen-done-counter', doneCnt) }}</div>
+      <b-row>
+        <b-col>
+          <LoadPredefinedSets></LoadPredefinedSets>
+        </b-col>
+        <b-col>
+          <LoadFileComponent></LoadFileComponent>
+        </b-col>
+        <b-col>
+          <newFlashCardForm></newFlashCardForm>
+        </b-col>
+      </b-row>
+    </div>
   </div>
 </template>
 
@@ -67,7 +80,7 @@ export default {
   methods: {},
 
   computed: {
-    doneCnt () {
+    doneCnt() {
       return this.$store.state.doneFlashCards.length;
     }
   }
@@ -75,15 +88,4 @@ export default {
 </script>
 
 <style scoped>
-/* ul {
-  list-style-type: none;
-}
-
-.list-item {
-  text-decoration: underline;
-}
-
-.checked {
-  text-decoration: line-through;
-} */
 </style>

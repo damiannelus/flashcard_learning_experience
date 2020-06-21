@@ -1,25 +1,36 @@
 <template>
-  <div class="LoadFileComponent">
-    <div class="panel panel-sm">
-      <div class="panel-body">
-        <div class="form-group">
-          <div class="col-sm-9">
-            <input
-              type="file"
-              id="csv_file"
-              name="csv_file"
-              class="form-control"
-              @change="loadCSV($event)"
-            />
+  <div>
+    <div class="LoadFileComponent">
+      <div class="panel panel-sm d-none d-lg-block">
+        <div class="panel-body">
+          <div class="form-group">
+            <div class="col-sm-9">
+              <input
+                type="file"
+                id="csv_file"
+                name="csv_file"
+                class="form-control"
+                @change="loadCSV($event)"
+              />
+            </div>
           </div>
         </div>
+      </div>
+      <div class="d-block d-lg-none">
+        <input
+          type="file"
+          id="csv_file"
+          name="csv_file"
+          class="form-control"
+          @change="loadCSV($event)"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Vuex from 'vuex'
+import Vuex from "vuex";
 import FlashCard from "../../data_objects/flashCard";
 import parseCSV from "../../utils/CSVManipulaitons";
 
@@ -44,7 +55,7 @@ export default {
         reader.onload = function(event) {
           var csv = event.target.result;
           // parseCSV(csv);
-          vm.$store.dispatch('loadFlashcards', parseCSV(csv));
+          vm.$store.dispatch("loadFlashcards", parseCSV(csv));
         };
         reader.onerror = function(evt) {
           if (evt.target.error.name == "NotReadableError") {
@@ -54,7 +65,7 @@ export default {
       } else {
         alert("FileReader are not supported in this browser.");
       }
-    },
+    }
   }
 };
 </script>

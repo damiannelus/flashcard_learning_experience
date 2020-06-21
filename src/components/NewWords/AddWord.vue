@@ -1,47 +1,48 @@
 <template>
-  <div>
-    <p class="text-success">
-      {{ $t('list-of-words.add-word-banner') }}
-    </p>
-    <p v-if="errors.length">
-      <b>{{ $tc('list-of-words.add-word-error', errors.length) }}</b>
-      <ul>
-        <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
-      </ul>
-    </p>
-
-    <p>
-      <label for="front">{{ $t('list-of-words.add-word-front') }}</label>
-      <input
-        id="front"
-        v-model="front"
-        type="text"
-        name="front"
-      >
-    </p>
-
-    <p>
-      <label for="back">{{ $t('list-of-words.add-word-back') }}</label>
-      <input
-        id="back"
-        v-model="back"
-        type="text"
-        name="back"
-      >
-    </p>
-
-    <p>
-      <input
-        type="submit"
-        v-bind:value="$t('list-of-words.add-word-submit')"
-        v-on:click="submit"
-      >
-    </p>
-
-    <p v-if="submitMsg">
-      <b>{{submitMsg}}</b>
-    </p>
-  </div>
+   <div>
+      <div class="d-none d-lg-block">
+         <p class="text-success">
+            {{ $t('list-of-words.add-word-banner') }}
+         </p>
+         <p v-if="errors.length">
+            <b>{{ $tc('list-of-words.add-word-error', errors.length) }}</b>
+         <ul>
+            <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
+         </ul>
+         </p>
+         <p>
+            <label for="front">{{ $t('list-of-words.add-word-front') }}</label>
+            <input
+               id="front"
+               v-model="front"
+               type="text"
+               name="front"
+               >
+         </p>
+         <p>
+            <label for="back">{{ $t('list-of-words.add-word-back') }}</label>
+            <input
+               id="back"
+               v-model="back"
+               type="text"
+               name="back"
+               >
+         </p>
+         <p>
+            <input
+               type="submit"
+               v-bind:value="$t('list-of-words.add-word-submit')"
+               v-on:click="submit"
+               >
+         </p>
+         <p v-if="submitMsg">
+            <b>{{submitMsg}}</b>
+         </p>
+      </div>
+      <div class="d-block d-lg-none">
+         <button type="button" class="btn btn-outline-success">{{ $t('list-of-words.add-word-rwd')}}</button>
+      </div>
+   </div>
 </template>
 
 <script>

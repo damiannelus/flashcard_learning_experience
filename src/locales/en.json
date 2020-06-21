@@ -13,6 +13,7 @@
     "add-word-back": "Back ",
     "add-word-submit": "Submit 🤘",
     "add-word-error": "Please correct the following error(s): | Please correct the following error: | Please correct the following errors:",
-    "small-screen-done-counter": "Words checked so far: {n}"
+    "small-screen-done-counter": "Words checked so far: {n}",
+    "add-word-rwd": "➕ new word"
   }
 }

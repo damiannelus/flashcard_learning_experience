@@ -1,6 +1,11 @@
 <template>
   <div>
-    <button v-on:click="loadPredefinedSet">Load sample flashcards</button>
+    <div class="d-none d-lg-block">
+      <button v-on:click="loadPredefinedSet">Load sample flashcards</button>
+    </div>
+    <div class="d-block d-lg-none">
+      <button type="button" v-on:click="loadPredefinedSet" class="btn btn-outline-primary">Load sample flashcards</button>
+    </div>
   </div>
 </template>
 
@@ -23,16 +28,16 @@ export default {
   methods: {
     loadPredefinedSet: function() {
       fb.loadPredefinedSet()
-      .then((result) => {
-        this.$store.dispatch("loadFlashcards", result);
-      }).catch((err) => {
-        console.log(err);
-      });
-      
+        .then(result => {
+          this.$store.dispatch("loadFlashcards", result);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
     uploadLoaded: function() {
       this.$store.state.flashCards.forEach((item, idx, array) => {
-        fb.addSingleWord(item.word, item.translation)
+        fb.addSingleWord(item.word, item.translation);
       });
     }
   }
