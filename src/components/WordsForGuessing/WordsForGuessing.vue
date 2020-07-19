@@ -7,6 +7,7 @@
         </div>
       </b-list-group-item>
     </b-list-group>
+    <h4 v-else>{{ $t('list-of-words.no-more-words') }}</h4>
     <button type="button" class="btn btn-outline-primary" v-on:click="shuffleCards">{{ $t('list-of-words.shuffle') }}</button>
     <k-progress :percent="percent" :color="['#008000', '#FFA500', '#FF0000']" :color-flow="false" active></k-progress>
   </div>
