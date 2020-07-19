@@ -40,7 +40,37 @@
          </p>
       </div>
       <div class="d-block d-lg-none">
-         <button type="button" class="btn btn-outline-success">{{ $t('list-of-words.add-word-rwd')}}</button>
+         <b-button v-b-modal.modal-add-word-rwd class="btn btn-outline-success">{{ $t('list-of-words.add-word-rwd')}}</b-button>
+         <b-modal id="modal-add-word-rwd" :title="$t('list-of-words.add-word-banner')">
+            <div><p>
+               <label for="front">{{ $t('list-of-words.add-word-front') }}</label>
+               <input
+                  id="front"
+                  v-model="front"
+                  type="text"
+                  name="front"
+                  >
+            </p>
+            <p>
+               <label for="back">{{ $t('list-of-words.add-word-back') }}</label>
+               <input
+                  id="back"
+                  v-model="back"
+                  type="text"
+                  name="back"
+                  >
+            </p>
+            <p>
+               <input
+                  type="submit"
+                  v-bind:value="$t('list-of-words.add-word-submit')"
+                  v-on:click="submit"
+                  >
+            </p>
+            <p v-if="submitMsg">
+               <b>{{submitMsg}}</b>
+            </p></div>
+         </b-modal>
       </div>
    </div>
 </template>
@@ -90,6 +120,7 @@ export default {
     },
 
     submit: function (e) {
+      this.$bvModal.hide('modal-add-word-rwd')
       if(this.checkForm(e)){
         console.log("Data submitted");
         fstore.addSingleWord(this.front, this.back)

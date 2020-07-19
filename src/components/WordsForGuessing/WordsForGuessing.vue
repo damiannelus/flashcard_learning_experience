@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-list-group v-if="drawnFlashCards && drawnFlashCards.length" flush=true class="align-items-center">
+    <b-list-group v-if="drawnFlashCards && drawnFlashCards.length" flush class="align-items-center">
       <b-list-group-item v-on:click="wordChecked(flashCard.id)" v-for="flashCard in drawnFlashCards" v-bind:key="flashCard.id" class="align-items-right">
           <div v-if="flashCard.isChecked != true" class="">
           <span v-bind:class="{'checked':flashCard.isChecked}"> {{ flashCard.word }}</span>
