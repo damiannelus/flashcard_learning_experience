@@ -5,7 +5,6 @@ export default class FlashCard {
         this._word = word;
         this._translation = translation;
         this._isChecked = false;
-        // console.log(`FlashCard created. Word: ${this._word}, ${this._translation}, ${this._id}`);
     }
 
     get id(){
@@ -27,19 +26,6 @@ export default class FlashCard {
     set isChecked(status) {
         this._isChecked = status;
     }
-
-    // set id(value) {
-    //     this._id = value;
-    // }
-
-    // set word(value) {
-    //     this._value = value;
-    // }
-
-    // set translation(value) {
-    //     this._translation = value;
-    // }
-
 }
 
 // console.log(new FlashCard(0, "cat","kot"));
