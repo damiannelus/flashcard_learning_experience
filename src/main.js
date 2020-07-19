@@ -14,10 +14,16 @@ import store from './store'
 
 Vue.config.productionTip = false
 
-import VueRouter from 'vue-router'
+import VueRouter from 'vue-router';
+import VueAnalytics from 'vue-analytics';
+
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
+Vue.use(VueAnalytics, {
+  id: 'G-G5XX5VBJZ3',
+  router
+})
 
 const router = new VueRouter({
   routes: [
