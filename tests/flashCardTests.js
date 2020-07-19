@@ -18,5 +18,8 @@ describe("test flashcards class", () => {
     expect(testFlashCard.word).to.eq(stubValue.word);
     expect(testFlashCard.translation).to.eq(stubValue.translation);
     expect(testFlashCard.isChecked).to.eq(false);
+  });
+  it("validate checking a fc", () => {
+    
   })
 })

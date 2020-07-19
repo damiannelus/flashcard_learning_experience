@@ -5,14 +5,17 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+    "test:unit": "vue-cli-service test:unit tests/*.js",
     "lint": "vue-cli-service lint",
-    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
-    "test": "mocha --require @babel/register tests/*.js --exit"
+    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
   },
   "dependencies": {
+    "@babel/runtime": "^7.10.5",
     "@google-cloud/storage": "^4.7.0",
+    "@vue/babel-preset-app": "^4.4.6",
     "axios": "^0.19.2",
+    "babel-loader": "^8.0.0-beta.0",
+    "babel-preset-vue-app": "^2.0.0",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
     "core-js": "^3.6.5",
@@ -21,6 +24,7 @@
     "k-progress": "^1.5.0",
     "lodash": "^4.17.19",
     "node-sass": "^4.14.1",
+    "regenerator-runtime": "^0.13.5",
     "validators": "^0.3.1",
     "vue": "^2.6.11",
     "vue-analytics": "^5.22.1",
@@ -29,10 +33,12 @@
     "vue-kinesis": "^1.1.5",
     "vue-lodash": "^2.1.2",
     "vue-router": "^3.3.4",
-    "vuex": "^3.5.1"
+    "vuex": "^3.5.1",
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.4",
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/register": "^7.10.5",
     "@google-cloud/storage": "^4.7.0",
@@ -75,25 +81,12 @@
       {
         "files": [
           "**/__tests__/*.{j,t}s?(x)",
-          "**/tests/unit/**/*.spec.{j,t}s?(x)"
-        ],
-        "env": {
-          "jest": true
-        }
-      },
-      {
-        "files": [
-          "**/__tests__/*.{j,t}s?(x)",
-          "**/tests/unit/**/*.spec.{j,t}s?(x)"
+          "**/tests/**/*.spec.{j,t}s?(x)"
         ],
         "env": {
           "jest": true
         }
       }
     ]
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+  }
 }
