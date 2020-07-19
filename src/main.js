@@ -17,14 +17,6 @@ Vue.config.productionTip = false
 import VueRouter from 'vue-router';
 import VueAnalytics from 'vue-analytics';
 
-Vue.use(VueRouter)
-Vue.use(BootstrapVue)
-Vue.use(IconsPlugin)
-// Vue.use(VueAnalytics, {
-//   id: 'G-G5XX5VBJZ3',
-//   router
-// })
-
 const router = new VueRouter({
   routes: [
     { path: '/', component: App },
@@ -33,6 +25,14 @@ const router = new VueRouter({
     { path: '*', component: NotFound}
   ],
   mode: 'history'
+})
+
+Vue.use(VueRouter)
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
+Vue.use(VueAnalytics, {
+  id: 'UA-164607425-1',
+  router
 })
 
 new Vue({
