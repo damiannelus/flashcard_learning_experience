@@ -56,17 +56,17 @@ export default {
           var csv = event.target.result;
           // parseCSV(csv);
           vm.$store.dispatch("loadFlashcards", parseCSV(csv));
-          this.$ga.event('game', 'words loaded', 'file');
+          vm.$ga.event('game', 'words loaded', 'file');
         };
         reader.onerror = function(evt) {
           if (evt.target.error.name == "NotReadableError") {
             alert("Cannot read file !");
-            this.$ga.event('game', 'Error loading', 'file');
+            vm.$ga.event('game', 'Error loading', 'file');
           }
         };
       } else {
         alert("FileReader are not supported in this browser.");
-        this.$ga.event('game', 'Error loading', 'file');
+        vm.$ga.event('game', 'Error loading', 'file');
       }
     }
   }
