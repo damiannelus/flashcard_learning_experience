@@ -19,10 +19,12 @@ export default {
   methods: {
     stopGoogleAnalytics() {
       this.$ga.disable();
+      this.$ga.event('analytics', 'consent switch', 'Disable');
       console.log("Analytics stopped");
     },
     engageGoogleAnalytics() {
       this.$ga.enable();
+      this.$ga.event('analytics', 'consent switch', 'Enable');
       console.log("Analytics enabled");
     },
     toggleAnalytics() {
