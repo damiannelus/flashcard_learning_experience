@@ -15,6 +15,8 @@
     "add-word-error": "Corrija los siguientes errores: | Corrija el siguiente error: | Corrija los siguientes errores:",
     "small-screen-done-counter": "Palabras verificadas hasta ahora: {n}",
     "add-word-rwd": "➕ nueva palabra",
-    "no-more-words": "¡maldición! vaciaste la baraja 🏅"
+    "no-more-words": "¡maldición! vaciaste la baraja 🏅",
+    "disable_analytics": "Apagar",
+    "enable_analytics": "Encender"
   }
 }

@@ -27,5 +27,3 @@ export default class FlashCard {
         this._isChecked = status;
     }
 }
-
-// console.log(new FlashCard(0, "cat","kot"));

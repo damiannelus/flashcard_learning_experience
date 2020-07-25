@@ -15,6 +15,8 @@
     "add-word-error": "Please correct the following error(s): | Please correct the following error: | Please correct the following errors:",
     "small-screen-done-counter": "Words checked so far: {n}",
     "add-word-rwd": "➕ new word", 
-    "no-more-words": "damn it! you emptied the deck 🏅"
+    "no-more-words": "damn it! you emptied the deck 🏅",
+    "disable_analytics": "Turn off",
+    "enable_analytics": "Turn on"
   }
 }

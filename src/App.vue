@@ -13,16 +13,19 @@
       </b-navbar>
     </div>
     <router-view></router-view>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import LocaleChanger from "./components/LocaleChanger/LocaleChanger";
+import Footer from "./components/Footer/footer"
 
 export default {
   name: "app",
   components: {
     LocaleChanger,
+    Footer
   }
 };
 </script>
