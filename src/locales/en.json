@@ -17,6 +17,7 @@
     "add-word-rwd": "➕ new word", 
     "no-more-words": "damn it! you emptied the deck 🏅",
     "disable_analytics": "Turn off",
-    "enable_analytics": "Turn on"
+    "enable_analytics": "Turn on",
+    "analytics_consent_copy": "This is very important information about being or being not tracked by Google Analytics"
   }
 }

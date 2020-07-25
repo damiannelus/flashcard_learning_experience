@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <h6>This is very important information about being or being not tracked by Google Analytics</h6>
+    <h6>{{$t('list-of-words.analytics_consent_copy')}}</h6>
     <b-form-radio-group
         id="btn-radios-1"
         v-model="selected"

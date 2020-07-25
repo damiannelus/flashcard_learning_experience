@@ -17,6 +17,7 @@
     "add-word-rwd": "➕ nueva palabra",
     "no-more-words": "¡maldición! vaciaste la baraja 🏅",
     "disable_analytics": "Apagar",
-    "enable_analytics": "Encender"
+    "enable_analytics": "Encender",
+    "analytics_consent_copy": "Esta es una información muy importante sobre cómo Google Analytics lo rastrea o no"
   }
 }
