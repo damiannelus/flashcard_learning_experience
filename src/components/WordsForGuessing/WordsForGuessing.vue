@@ -35,18 +35,22 @@ export default {
          } else {
            self.shuffleCards();
            self.percent = 0;
+           this.$ga.event('game', 'words shuffled by timer');
          }
-    }, 60000);
+    }, 6000);
 	},
 
   methods: {
     wordChecked(wordID) {
       this.$store.dispatch('crossOutFlashcard', wordID);
       this.percent = 0;
+      this.$ga.event('game', 'word checked', 'wordID', wordID);
+      this.$ga.event('game', 'word checked', 'timer', self.percent);
     },
 
     drawFlashCards: function() {
-      this.shuffler ++; 
+      this.shuffler ++;
+      this.$ga.event('game', 'words shuffled', 'shufflerCNT', this.shuffler);
       console.log(`Shuffler: ${this.shuffler}`);
     },
 
