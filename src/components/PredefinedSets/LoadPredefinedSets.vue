@@ -30,9 +30,11 @@ export default {
       fb.loadPredefinedSet()
         .then(result => {
           this.$store.dispatch("loadFlashcards", result);
+          this.$ga.event('game', 'words loaded', 'predefined');
         })
         .catch(err => {
           console.log(err);
+          this.$ga.event('game', 'Error loading', 'predefined');
         });
     },
     uploadLoaded: function() {

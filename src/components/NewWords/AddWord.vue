@@ -127,6 +127,7 @@ export default {
         .then(resultMSG => {
           this.submitMsg = resultMSG;
         });
+        this.$ga.event('game', 'word added', `${this.front}:${this.back}`);
         this.front = null;
         this.back = null;       
       }
