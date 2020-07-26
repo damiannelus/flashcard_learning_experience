@@ -6,14 +6,16 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
             <b-nav-item to="/low">{{ $t('menu.list-of-words') }}</b-nav-item>
-            <b-nav-item to="/home">{{ $t('menu.hello-world') }}</b-nav-item>
+            <b-nav-item to="/">{{ $t('menu.hello-world') }}</b-nav-item>
           </b-navbar-nav>
         </b-collapse>
         <LocaleChanger></LocaleChanger>
       </b-navbar>
     </div>
     <router-view></router-view>
-    <Footer></Footer>
+    <div>
+      <Footer></Footer>
+    </div>
   </div>
 </template>
 

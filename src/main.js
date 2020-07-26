@@ -19,9 +19,9 @@ import VueAnalytics from 'vue-analytics';
 
 const router = new VueRouter({
   routes: [
-    { path: '/', component: App },
+    // { path: '/', component: App },
     { path: '/low', component: ListOfWords},
-    { path: '/home', component: HelloWorld},
+    { path: '/', component: HelloWorld},
     { path: '*', component: NotFound}
   ],
   mode: 'history'
