@@ -32,13 +32,18 @@ export default {
     }
   },
 
-  data() {
-    return {
-      selected: 'disabled',
-      options: [
+  computed: {
+    options() {
+      return [
         { text: this.$t('list-of-words.disable_analytics'), value: 'disabled'},
         { text: this.$t('list-of-words.enable_analytics'), value: 'enabled'},
       ]
+    }
+  },
+
+  data() {
+    return {
+      selected: 'disabled'
     }
   }
 };
