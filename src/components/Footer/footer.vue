@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div id="footer">
     <h6>{{$t('list-of-words.analytics_consent_copy')}}</h6>
     <b-form-radio-group
         id="btn-radios-1"
@@ -48,6 +48,3 @@ export default {
   }
 };
 </script>
-
-<style>
-</style>
