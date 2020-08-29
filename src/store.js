@@ -49,7 +49,6 @@ export default new Vuex.Store({
       let flashcardToMove = this.state.flashCards.filter(obj => {
         return obj.id === wordID;
       });
-      // console.log(`crossOutFlashcard.flashcardToMove: ${JSON.stringify(flashcardToMove)}`);
       
       commit('ADD_DONE_FLASHCARD', flashcardToMove[0]);
 
