@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="TheListOfWords">
     <div>
       <b-container class="bv-example-row">
         <div class="d-none d-lg-block">
